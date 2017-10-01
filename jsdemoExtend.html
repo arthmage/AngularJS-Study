@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello Angular</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script type="text/javascript">
+            var myData = {
+                name: "Adam",
+                weather: "sunny",
+                printMessages: function(){
+                    console.log("Hello "+this.name+".");
+                    console.log("Today is "+this.weather+".");
+                }
+            };
+            var myExtendedObject = {
+                city: "London"
+            }
+            angular.extend(myExtendedObject, myData);
+            
+            console.log(myExtendedObject.name);
+            console.log(myExtendedObject.city);
+        </script>
+    </head>
+    <body>
+        Look at the Console Window.
+    </body>      
+</html>

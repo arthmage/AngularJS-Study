@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello Angular</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script type="text/javascript">
+            function printMessage(unknownObject){
+                if(angular.isFunction(unknownObject)){
+                    console.log("This is Function.");
+                    unknownObject();
+                   }else{
+                       console.log("This is not Function.")
+                       console.log(unknownObject);
+                   }
+            }
+            var variable1 = function sayHello(){
+                console.log("Hello");
+            }
+            var variable2 = "Good Bye";
+            
+            printMessage(variable1);
+            printMessage(variable2);
+        </script>
+    </head>
+    <body>
+        Look at the console window.
+    </body>
+</html>
