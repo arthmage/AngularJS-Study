@@ -23,12 +23,28 @@
             });
             
             var model = {
-                user: "Adam",
-                items: [{action:"Buy Flowers",done:false},
-                        {action:"Get Shoes",done:false},
-                        {action:"Collect Tickets",done:true},
-                        {action:"Call Joe",done:false}]
+                user: "Adam"
+                
+                /* This datas moved to todo.json File.*/
+                
+//                items: [{action:"Buy Flowers",done:false},
+//                        {action:"Get Shoes",done:false},
+//                        {action:"Collect Tickets",done:true},
+//                        {action:"Call Joe",done:false}]
+                
             };
+            
+            todoApp.run(function ($http) {
+                $http({
+                    method: 'GET',
+                    url: 'todo.json'
+                }).then(function successCallback(response){
+                    model.items = response.data;
+                }, function errorCallback(response){
+                   console.log(response); 
+                });
+            });
+            
             todoApp.controller("ToDoCtrl",function($scope){
                 $scope.todo = model;
                 $scope.incompleteCount = function(){
