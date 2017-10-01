@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title>Hello Angular</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">      
+    </head>
+    <body>
+        <div class="btn btn-default">{{"AngularJS"}}</div>
+        <div class="btn btn-success">Bootstrap</div>
+        <hr ng-init="str=95;wis=80;dex=75">
+        관우 운장<br>
+        힘: {{str}}
+        <input type="range" min="0" max="100" ng-model="str">
+        지능: {{wis}}
+        <input type="range" min="0" max="100" ng-model="wis">
+        민첩: {{dex}}
+        <input type="range" min="0" max="100" ng-model="dex">
+        
+        소유병력(최대 200,000): {{en}}
+        <input type="range" min="0" max="200000" ng-model="en" step="1">
+    </body>
+</html>
