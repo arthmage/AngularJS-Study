@@ -24,6 +24,31 @@
                         $("#btnPlayPause").addClass("btnPause");
                     }
                 }
+                
+                var sliderSeek = $("#sliderSeek").get(0);
+                $("#myVideo").bind("timeupdate",updateTime);
+                $("#sliderSeek").change(function(){
+                    setVideoSeek();
+                })
+                function updateTime(){
+                    var newtime = objVideo.currentTime*(100/objVideo.duration);
+                    sliderSeek.value = newtime;
+                    var curmins = Math.floor(objVideo.currentTime/60);
+                    var cursecs = Math.floor(objVideo.currentTime-curmins*60);
+                    var durmins = Math.floor(objVideo.duration/60);
+                    var dursecs = Math.floor(objVideo.duration-durmins*60);
+                    if(cursecs<10){cursecs = "0"+cursecs;}
+                    if(dursecs<10){dursecs = "0"+dursecs;}
+                    if(curmins<10){curmins = "0"+curmins;}
+                    if(durmins<10){durmins = "0"+durmins;}
+                    $("#textCurrtime").text(curmins+":"+cursecs);
+                    $("#textDurtime").text(durmins+":"+dursecs);
+                }
+                function setVideoSeek(){
+                    var seekto = objVideo.duration*(sliderSeek.value/100);
+                    objVideo.currentTime = seekto;
+                }
+                
             });
         </script>
         <style>
